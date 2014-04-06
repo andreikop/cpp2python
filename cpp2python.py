@@ -40,8 +40,9 @@ def process_line(line):
                 V
         codecode(param, param)
     """
-    line = re.sub(';$', '', line) # remove semicolon from the end of line
-    
+    line = re.sub(';([\r\n]?)$', '\\1', line) # remove semicolon from the end of line
+
+
     """ remove strings containing opening bracket
     
         if (blabla)
