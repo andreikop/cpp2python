@@ -269,11 +269,13 @@ def process_line(line):
 
     return line
 
-def process_file(filename):
-    with open(filename, 'rw+') as file:
+def process_file(in_filename, out_filename):
+    """
+    generator - outputs processed file
+    """
+    with open(in_filename, 'r') as file:
         lines = file.readlines()  # probably would die on sources more than 100 000 lines :D
-        file.seek(0)
-        file.truncate(0)
+    with open(out_filename, 'w+') as file:
         for line in lines:
             file.write(process_line(line))
 
@@ -292,11 +294,12 @@ def main():
     if os.path.isdir(sys.argv[1]):
         for root, dirs, files in os.walk(sys.argv[1]):
             for file in files:
-                filename = root + '/' + file
-                if is_source(filename):
-                    process_file(filename)
+                in_filename = root + '/' + file                
+                if is_source(in_filename):
+                    out_filename = in_filename + '.py' # not ideal
+                    process_file(in_filename, out_filename)
     elif os.path.isfile(sys.argv[1]):
-        process_file(sys.argv[1])
+        process_file(sys.argv[1], sys.argv[1] + '.py')
     else:
         print >> sys.stderr, 'Not a file or directory', sys.argv[1]
         sys.exit(-1)
