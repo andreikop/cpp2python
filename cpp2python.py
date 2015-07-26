@@ -278,7 +278,7 @@ def process_file(filename):
             file.write(process_line(line))
 
 
-if __name__ == '__main__':
+def main():
     if '--help' in sys.argv or \
        '-h' in sys.argv or \
        '--version' in sys.argv or \
@@ -300,3 +300,6 @@ if __name__ == '__main__':
     else:
         print >> sys.stderr, 'Not a file or directory', sys.argv[1]
         sys.exit(-1)
+
+if __name__ == '__main__':
+    main()
