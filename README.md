@@ -1,20 +1,35 @@
 # cpp2python
-Script helps to convert C/C++ sources to C/C++ -like Python sources.
 
-It does few simple edit operations, like removing semicolons and type declarations. After it you must edit code manually, but you'll spend less time to do it.
+The script helps to convert C/C++ sources to C/C++ -like Python sources.
 
-Utility **will** make mistaces and **will not** generate ready for use code, so, it won't help you, unless if you know either C/C++ and Python
+It does some simple edit operations like removing semicolons and type declarations. After it you must edit code manually, but you'll probably spend less time doing it.
 
-For better result, it is recomented to format your code to ANSI style before doing conversion.
+Example:
+```
+if (a && b)               -->    if a and b:
+{                         -->        object.method()
+    object->method();     -->
+}                         -->
+```
 
-**NO ANY BACKUPS ARE CREATED. YOU MAY PERMANENTLY CORRUPT YOR SOURCES**
+The utility **will** make mistakes and **will not** generate ready for use code, therefore it won't be useful for you unless you know both C/C++ and Python.
 
-Usage:
-    
-    cpp2python.py DIR|FILE
-    cpp2python.py -v|--version|-h|--help
+For better result, it is recommended to format your code to ANSI style before performing conversion.
 
-When directory name is given - tries to find source files by C/C++ suffixes, when file name is given - processes given file
+```
+astyle --style=ansi your.cpp source.cpp files.cpp
+```
 
-Author: Andrei Kopats <hlamer@tut.by>
-License: GPL
+### Usage
+
+    cpp2python.py DIR                     Find C/C++ files in the directory by suffix and process.
+    cpp2python.py FILE                    Process the file
+    cpp2python.py -v|--version|-h|--help  Display the help message
+
+
+### Author
+Andrei Kopats <hlamer@tut.by>
+setup.py and improvements by Stuart Axon
+
+### License
+GPL

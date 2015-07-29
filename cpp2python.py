@@ -1,21 +1,30 @@
 #!/usr/bin/env python
 
-help = """Script helps to convert C/C++ sources to C/C++ -like Python sources.
+help = """The script helps to convert C/C++ sources to C/C++ -like Python sources.
 
-It does few simple edit operations, like removing semicolons and type declarations. After it you must edit code manually, but you'll spend less time to do it.
+It does some simple edit operations like removing semicolons and type declarations.
+After it you must edit code manually, but you'll probably spend less time doing it.
+Example:
 
-Utility Will make mistaces and Will not generate ready for use code, so, it won't help you, unless if you know either C/C++ and Python
+    if (a && b)               -->    if a and b:
+    {                         -->        object.method()
+        object->method();     -->
+    }                         -->
 
-For better result, it is recomented to format your code to ANSI style before doing conversion.
+The utility **will** make mistakes and **will not** generate ready for use code,
+therefore it won't be useful for you unless you know both C/C++ and Python.
 
-NO ANY BACKUPS ARE CREATED. YOU MAY PERMANENTLY CORRUPT YOR SOURCES
+For better result, it is recomented to format your code to ANSI style
+before doing conversion.
+
+    astyle --style=ansi your.cpp source.cpp files.cpp
 
 Usage:
 
-    cpp2python.py DIR|FILE
-    cpp2python.py -v|--version|-h|--help
-
-When directory name is given - tries to find source files by C/C++ suffixes, when file name is given - processes given file
+    cpp2python.py DIR                     Find C/C++ files in the directory
+                                          by suffix and process.
+    cpp2python.py FILE                    Process the file
+    cpp2python.py -v|--version|-h|--help  Display the help message
 
 Author: Andrei Kopats <hlamer@tut.by>
 License: GPL
