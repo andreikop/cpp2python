@@ -23,8 +23,11 @@ Usage:
 
     cpp2python.py DIR                     Find C/C++ files in the directory
                                           by suffix and process.
-    cpp2python.py FILE                    Process the file
-    cpp2python.py -v|--version|-h|--help  Display the help message
+    cpp2python.py FILE                    Process the file.
+    cpp2python.py -v|--version|-h|--help  Display the help message.
+
+After the processing new file is created.
+File name is {old file name with suffix}.py. i.e. main.cpp.py
 
 Author: Andrei Kopats <hlamer@tut.by>
 License: GPL
@@ -303,7 +306,7 @@ def main():
     if os.path.isdir(sys.argv[1]):
         for root, dirs, files in os.walk(sys.argv[1]):
             for file in files:
-                in_filename = root + '/' + file                
+                in_filename = root + '/' + file
                 if is_source(in_filename):
                     out_filename = in_filename + '.py' # not ideal
                     process_file(in_filename, out_filename)
