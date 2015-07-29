@@ -35,6 +35,7 @@ File name is {old file name with suffix}.py. i.e. main.cpp.py
 
 ### Author
 Andrei Kopats <hlamer@tut.by>
+
 setup.py and improvements by Stuart Axon
 
 ### License
