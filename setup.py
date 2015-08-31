@@ -1,21 +1,5 @@
-import os
-import subprocess
-import sys
-import pkg_resources
-
-import subprocess
-import sys
-
-from glob import glob
-from os.path import abspath, basename, dirname, join, normpath, relpath
-from shutil import rmtree
-from textwrap import dedent
-
-from setuptools import setup
-from setuptools import Command
+from distutils.core import setup
 import cpp2python
-
-here = normpath(abspath(dirname(__file__)))
 
 setup(
     name='cpp2python',
@@ -46,9 +30,5 @@ setup(
     ],
     keywords='cpp python',
 
-    entry_points = {
-            'console_scripts': [
-                'cpp2python = cpp2python:main'
-            ]
-        },
+    scripts=['cpp2python.py']
 )
