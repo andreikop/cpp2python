@@ -297,11 +297,11 @@ def main():
        '-h' in sys.argv or \
        '--version' in sys.argv or \
        '-v' in sys.argv:
-        print help
+        print(help)
         sys.exit(0)
     if len (sys.argv) != 2:
-        print >> sys.stderr, 'Invalid parameters count. Must be 1'
-        print help
+        print('Invalid parameters count. Must be 1', file=sys.stderr)
+        print(help)
         sys.exit(-1)
     if os.path.isdir(sys.argv[1]):
         for root, dirs, files in os.walk(sys.argv[1]):
@@ -313,7 +313,7 @@ def main():
     elif os.path.isfile(sys.argv[1]):
         process_file(sys.argv[1], sys.argv[1] + '.py')
     else:
-        print >> sys.stderr, 'Not a file or directory', sys.argv[1]
+        print('Not a file or directory', sys.argv[1], file=sys.stderr)
         sys.exit(-1)
 
 if __name__ == '__main__':
