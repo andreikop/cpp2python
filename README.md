@@ -30,14 +30,14 @@ astyle --style=ansi your.cpp source.cpp files.cpp
     cpp2python.py FILE                    Process the file
     cpp2python.py -v|--version|-h|--help  Display the help message
 
+After the processing new file is created.
+File name is `{old file name with suffix}.py`. i.e. `main.cpp.py`
+
 ### Installation
 (Optional, the script can be used from the source tree)
 
     python3 setup.py install
 
-
-After the processing new file is created.
-File name is {old file name with suffix}.py. i.e. main.cpp.py
 
 ### Author
 Andrei Kopats <hlamer@tut.by>
