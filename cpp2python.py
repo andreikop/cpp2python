@@ -287,7 +287,7 @@ def process_file(in_filename, out_filename):
     """
     with open(in_filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()  # probably would die on sources more than 100 000 lines :D
-    with open(out_filename, 'w+') as file:
+    with open(out_filename, 'w+', encoding='utf-8') as file:
         for line in lines:
             file.write(process_line(line))
 
